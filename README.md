@@ -11,12 +11,8 @@ go install github.com/exprml/exprml-cli@latest
 ## Usage
 
 ```shell
-exprml-cli evaluate < input.yaml
-```
-
-```yaml
-# input.yaml
-cat: [Hello, ", ", ExprML, "!"]
+echo 'cat: ["`Hello`", "`, `", "`ExprML`", "`!`"]'\
+  | exprml-cli evaluate
 # => Hello, ExprML!
 ```
 

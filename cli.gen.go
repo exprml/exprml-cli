@@ -151,8 +151,6 @@ type CLI_Validate_Input struct {
 	Opt_Help bool
 
 	Opt_InputPath string
-
-	Opt_OutputPath string
 }
 
 func resolve_CLI_Validate_Input(input *CLI_Validate_Input, restArgs []string) error {
@@ -161,8 +159,6 @@ func resolve_CLI_Validate_Input(input *CLI_Validate_Input, restArgs []string) er
 		Opt_Help: false,
 
 		Opt_InputPath: "",
-
-		Opt_OutputPath: "",
 	}
 
 	var arguments []string
@@ -197,15 +193,6 @@ func resolve_CLI_Validate_Input(input *CLI_Validate_Input, restArgs []string) er
 
 			}
 			if err := parseValue(&input.Opt_InputPath, lit); err != nil {
-				return fmt.Errorf("value %q is not assignable to option %q", lit, optName)
-			}
-
-		case "-output-path", "-o":
-			if !cut {
-				return fmt.Errorf("value is not specified to option %q", optName)
-
-			}
-			if err := parseValue(&input.Opt_OutputPath, lit); err != nil {
 				return fmt.Errorf("value %q is not assignable to option %q", lit, optName)
 			}
 
@@ -385,16 +372,16 @@ func GetDoc(subcommands []string) string {
 		panic(fmt.Sprintf(`invalid subcommands: %v`, subcommands))
 
 	case "":
-		return "exprml-cli (v0.0.1)\n\nexprml-cli\n\n    Description:\n        exprml command line interface\n\n    Syntax:\n        $ exprml-cli  [<option>]...\n\n    Options:\n        -help[=<boolean>], -h[=<boolean>]  (default=false):\n            Shows help message.\n\n    Subcommands:\n        evaluate:\n            Evaluates a YAML expression.\n\n        validate:\n            Validates a YAML file.\n\n        version:\n            Shows the version of the exprml-cli command.\n\n\n"
+		return "exprml-cli (v0.0.2)\n\nexprml-cli\n\n    Description:\n        exprml command line interface\n\n    Syntax:\n        $ exprml-cli  [<option>]...\n\n    Options:\n        -help[=<boolean>], -h[=<boolean>]  (default=false):\n            Shows help message.\n\n    Subcommands:\n        evaluate:\n            Evaluates a YAML expression.\n\n        validate:\n            Validates a YAML file.\n\n        version:\n            Shows the version of the exprml-cli command.\n\n\n"
 
 	case "evaluate":
-		return "exprml-cli (v0.0.1)\n\nexprml-cli evaluate\n\n    Description:\n        Evaluates a YAML expression.\n\n    Syntax:\n        $ exprml-cli evaluate [<option>]...\n\n    Options:\n        -format=<string>, -f=<string>  (default=\"yaml\"):\n            Output format. One of `yaml` or `json`.\n\n        -help[=<boolean>], -h[=<boolean>]  (default=false):\n            Show help message.\n\n        -input-path=<string>, -i=<string>  (default=\"\"):\n            Input YAML file path. stdin is used if not provided.\n\n        -output-path=<string>, -o=<string>  (default=\"\"):\n            Output file path. stdout is used if not provided.\n\n\n"
+		return "exprml-cli (v0.0.2)\n\nexprml-cli evaluate\n\n    Description:\n        Evaluates a YAML expression.\n\n    Syntax:\n        $ exprml-cli evaluate [<option>]...\n\n    Options:\n        -format=<string>, -f=<string>  (default=\"yaml\"):\n            Output format. One of `yaml` or `json`.\n\n        -help[=<boolean>], -h[=<boolean>]  (default=false):\n            Show help message.\n\n        -input-path=<string>, -i=<string>  (default=\"\"):\n            Input YAML file path. stdin is used if not provided.\n\n        -output-path=<string>, -o=<string>  (default=\"\"):\n            Output file path. stdout is used if not provided.\n\n\n"
 
 	case "validate":
-		return "exprml-cli (v0.0.1)\n\nexprml-cli validate\n\n    Description:\n        Validates a YAML file.\n\n    Syntax:\n        $ exprml-cli validate [<option>]...\n\n    Options:\n        -help[=<boolean>], -h[=<boolean>]  (default=false):\n            Show help message.\n\n        -input-path=<string>, -i=<string>  (default=\"\"):\n            Input YAML file path. stdin is used if not provided.\n\n        -output-path=<string>, -o=<string>  (default=\"\"):\n            Output file path. stdout is used if not provided.\n\n\n"
+		return "exprml-cli (v0.0.2)\n\nexprml-cli validate\n\n    Description:\n        Validates a YAML file.\n\n    Syntax:\n        $ exprml-cli validate [<option>]...\n\n    Options:\n        -help[=<boolean>], -h[=<boolean>]  (default=false):\n            Show help message.\n\n        -input-path=<string>, -i=<string>  (default=\"\"):\n            Input YAML file path. stdin is used if not provided.\n\n\n"
 
 	case "version":
-		return "exprml-cli (v0.0.1)\n\nexprml-cli version\n\n    Description:\n        Shows the version of the exprml-cli command.\n\n    Syntax:\n        $ exprml-cli version\n\n\n"
+		return "exprml-cli (v0.0.2)\n\nexprml-cli version\n\n    Description:\n        Shows the version of the exprml-cli command.\n\n    Syntax:\n        $ exprml-cli version\n\n\n"
 
 	}
 }

@@ -1,5 +1,5 @@
 name: exprml-cli
-version: v0.0.1
+version: v0.0.2
 description: exprml command line interface
 options:
   -help:
@@ -36,6 +36,3 @@ subcommands:
       -input-path:
         short: -i
         description: Input YAML file path. stdin is used if not provided.
-      -output-path:
-        short: -o
-        description: Output file path. stdout is used if not provided.

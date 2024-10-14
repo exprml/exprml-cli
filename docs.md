@@ -1,4 +1,4 @@
-# exprml-cli (v0.0.1)
+# exprml-cli (v0.0.2)
 
 ## exprml-cli
 
@@ -75,9 +75,6 @@ exprml-cli validate [<option>]...
 
 * `-input-path=<string>`, `-i=<string>`  (default=`""`):  
   Input YAML file path. stdin is used if not provided.  
-
-* `-output-path=<string>`, `-o=<string>`  (default=`""`):  
-  Output file path. stdout is used if not provided.  
 
 
 ## exprml-cli version
